@@ -34,5 +34,60 @@ class Solution {
     }
 }
 
-Leetcode 11:
+Leetcode 75:
+
+class Solution {
+    public void sortColors(int[] nums) {
+
+        int n = nums.length, k = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0) {
+                int temp = nums[k];
+                nums[k] = nums[i];
+                nums[i] = temp;
+                k++;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 1) {
+                int temp = nums[k];
+                nums[k] = nums[i];
+                nums[i] = temp;
+                k++;
+            }
+        }
+    }
+}
+
+Leetcode 1781:
+
+class Solution {
+    public int beautySum(String s) 
+    {
+        int n=s.length();
+        int ans=0;
+        for(int i=0;i<n;i++)
+        {
+            int[] freq=new int[26];
+            for(int j=i;j<n;j++)
+            {
+                freq[s.charAt(j)-'a']++;
+                int min=Integer.MAX_VALUE;
+                int max=0;
+                for(int k=0;k<26;k++)
+                {
+                    if(freq[k]>0)
+                    {
+                        max=Math.max(max,freq[k]);
+                        min=Math.min(min,freq[k]);
+                    }
+                }
+                ans+=max-min;
+            }
+        }  
+        return ans;  
+    }
+}
 
