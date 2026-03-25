@@ -91,3 +91,54 @@ class Solution {
     }
 }
 
+Leetcode 11:
+
+class Solution {
+    public int maxArea(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int maxArea = 0;
+        while (left < right) {
+            int currentArea = Math.min(height[left], height[right]) * (right - left);
+            maxArea = Math.max(maxArea, currentArea);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxArea;
+    }
+}
+
+Leetcode 42:
+
+public class Solution {
+    public int trap(int[] h) {
+        int l = 0, r = h.length - 1, lmax = Integer.MIN_VALUE, rmax = Integer.MIN_VALUE, ans = 0;
+        while (l < r) {
+        lmax = Math.max(lmax, h[l]);
+        rmax = Math.max(rmax, h[r]);
+        ans += (lmax < rmax) ? lmax - h[l++] : rmax - h[r--];
+        }
+        return ans;
+    }
+}
+
+Leetcode 2220:
+
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        int count=0;
+        int xor=start^goal;
+        while(xor!=0)
+        {
+            xor=xor&(xor-1);
+            count++;
+        }
+        return count;
+    }
+}
+
+
