@@ -160,3 +160,93 @@ class Solution {
         }
 }
 
+Leetcode 1768:
+
+class Solution {
+    public String mergeAlternately(String word1, String word2) 
+    {
+        StringBuilder S=new StringBuilder();
+        int l1=word1.length();
+        int l2=word2.length();
+        int i=0,j=0;
+        while(i<l1||j<l2)
+        {
+            if(i<l1)
+            {
+                S.append(word1.charAt(i));
+                i++;
+            }
+            if(j<l2)
+            {
+                S.append(word2.charAt(j));
+                j++;
+            }
+        }
+        return S.toString();
+
+    }
+}
+
+Home Work::::::::::::::::::::::::::::::::::::::::::::::::-->
+
+Leetcode 520:
+
+class Solution {
+    public boolean detectCapitalUse(String word) 
+    {
+        int l=word.length();
+        int  uppercount=0;
+        int  lowercount=0;
+        int  upcount=0;
+        for(int i=1;i<l;i++)
+        {
+            if((word.charAt(0)>='A'&& word.charAt(0)<='Z')&&(word.charAt(i)>='a' && word.charAt(i)<='z'))
+            {
+               upcount++;
+            }
+            else if(((word.charAt(0)>='A'&& word.charAt(0)<='Z')&& Character.isUpperCase(word.charAt(i))))
+            {
+               uppercount++;
+            }
+            else if((word.charAt(0)>='a'&& word.charAt(0)<='z') && Character.isLowerCase(word.charAt(i)))
+            {
+               lowercount++;
+            }
+        }
+       if(uppercount==l-1|| lowercount==l-1) return true;
+       if(upcount==l-1) return true;
+        return false;  
+    }
+}
+
+Leetcode 796:
+
+class Solution {
+    public boolean rotateString(String s, String goal) 
+    {
+        if(s.length() != goal.length())
+        {
+            return false;
+        }
+        String S=s+s;
+        return S.contains(goal);
+    }
+}
+
+
+Leetcode 709:
+
+class Solution {
+    public String toLowerCase(String s) {
+        return s.toLowerCase();
+    }
+}
+
+Leetcode 1678:
+
+class Solution {
+    public String interpret(String command) 
+    {
+         return command.replace("()","o").replace("(al)","al");
+    }
+}
