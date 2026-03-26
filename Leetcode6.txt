@@ -47,3 +47,116 @@ class Solution {
 
 Leetcode 345:
 
+class Solution {
+    public String reverseVowels(String s) 
+    {
+        char[] c= s.toCharArray();
+        int start=0,end=c.length-1;
+        while(start<end)
+        {
+            while(start<end && (!isVowel(c[start])))
+            {
+                start++;
+            }
+            while(start<end && (!isVowel(c[end])))
+            {
+                end--;
+            }
+            char temp=c[start];
+            c[start]=c[end];
+            c[end]=temp;
+            start++;
+            end--;
+        }
+        return new String(c);
+    }
+    boolean isVowel(char ch)
+    {
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+        {
+            return true;
+        }
+        return false;
+    }
+
+}
+
+Leetcode 1108:
+
+class Solution {
+    public String defangIPaddr(String address) {
+return address.replace(".","[.]");
+    }
+}
+
+Leetcode 3232:
+
+class Solution {
+    public boolean canAliceWin(int[] nums) 
+    {
+        int sum1=0;
+        int sum2=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]<10)
+            {
+                sum1+=nums[i];
+            }
+            else
+            {
+                sum2+=nums[i];
+            }
+        }
+        if(sum1==sum2)
+        {
+            return false;
+        }    
+        else
+        return true;
+    }
+}
+
+Leetcode 1470:
+
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int i=0,j=n;
+        int k=0;
+        int[] arr=new int[nums.length];
+        while(j<nums.length)
+        {
+            arr[k]=nums[i];
+            arr[k+1]=nums[j];
+            j++;
+            i++;
+            k+=2;
+        }
+        return arr;
+        
+    }
+}
+
+Leetcode 189:
+
+class Solution {
+    public void rotate(int[] nums, int k)
+    {
+        int n=nums.length;
+        k=k%n;
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+}
+        void reverse(int[] nums,int start,int end)
+        {
+            while(start<end)
+            {
+                int temp=nums[start];
+                nums[start]=nums[end];
+                nums[end]=temp;
+                start++;
+                end--;
+            }
+        }
+}
+
