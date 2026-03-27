@@ -1,0 +1,154 @@
+Leetcode 11:
+
+class Solution {
+    public int maxArea(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int maxArea = 0;
+        while (left < right) {
+            int currentArea = Math.min(height[left], height[right]) * (right - left);
+            maxArea = Math.max(maxArea, currentArea);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxArea;
+    }
+}
+
+Leetcode 58:
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        s=s.trim();
+        int len=s.length();
+        char[] ch_arr=s.toCharArray();
+        
+        for(int i=len-1;i>0;i--)
+        {
+            if(ch_arr[i]==' ')
+            {
+               return len-i-1;
+            }
+            
+        }
+        return len;
+        
+    }
+}
+
+No of words in a sentence::::::::::::::------->
+
+import java.util.*;
+
+public class NoOfWords {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if ((s.charAt(i) <= 'Z' && s.charAt(i) >= 'A') || 
+                (s.charAt(i) <= 'z' && s.charAt(i) >= 'a')) 
+                {
+                if (i == 0 || s.charAt(i - 1) == ' ') {
+                    count++;
+                }
+            }
+        }
+
+        System.out.print(count);
+    }
+}
+
+Mini Game::::::::::::::::::::::::::::::::::::::::::::::::::::::::---->>
+
+
+class Character
+{
+    String name;
+    Character(String name)
+    {
+        this.name=name;
+    }
+    void attack()
+    {
+        System.out.println(name+" attacks!!!!!!");
+    }
+}
+class Warrior extends Character
+{
+    Warrior(String name)
+    {
+        super(name);
+    }
+    @Override
+    void attack()
+    {
+        System.out.println(name+" is attacking with a sword");
+    }
+}
+class Archer extends Character
+{
+    Archer(String name)
+    {
+        super(name);
+    }
+    @Override
+    void attack()
+    {
+        System.out.println(name+" is attacking with an arrow");
+    }
+}
+class Mage extends Character
+{
+    Mage(String name)
+    {
+        super(name);
+    }
+    @Override
+    void attack()
+    {
+        System.out.println(name+" is attacking with magic");
+    }
+}
+public class Minigame
+{
+    public static void main(String[] args) 
+    {
+
+        Character c;
+        c=new Character("CHARACTER");
+        c.attack();
+        c=new Warrior("Aragorn");
+        c.attack();
+        c=new Archer("Legolas");
+        c.attack();
+        c=new Mage("Gandalf");
+        c.attack();
+    }
+}
+
+
+Leetcode 724:
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int totalSum = 0;
+        int leftsum = 0;
+        for (int ele : nums)
+            totalSum += ele;
+        for (int i = 0; i < nums.length; leftsum += nums[i++])
+            if (leftsum * 2 == totalSum - nums[i])
+                return i; 
+        return -1;
+    }
+}
+
+
+Leetcode 54:
+
+
