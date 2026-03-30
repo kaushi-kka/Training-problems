@@ -1,0 +1,129 @@
+Leetcode 3163:
+
+class Solution {
+    public String compressedString(String word) 
+    {
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<word.length();i++)
+        {
+            int count=0;
+            for(int j=i;j<word.length();j++)
+            {
+                if((word.charAt(j)==word.charAt(i))&& count<9)
+                count++;
+                else break;
+            }
+            sb.append(count).append(word.charAt(i));
+            i=count+i-1;
+        }
+        return sb.toString();
+    }
+}
+
+
+Print only the Words that have even number as their length in a sentence::::::::::::::::::------>>>>
+
+public class EvenLengthWords {
+    public static void main(String[] args) {
+        {
+            String s="Print words with even length";
+            s=s+" ";
+            StringBuilder sb=new StringBuilder();
+            int count=0;
+            
+                for(int j=0;j<s.length();j++)
+                {
+                    if(s.charAt(j)!=' ')
+                    {
+                        sb.append(s.charAt(j));
+                        count++;
+                    }
+                    else{
+                    if(count%2==0)
+                    {
+                        System.out.print(sb.toString()+" ");
+                    }
+                    sb=new StringBuilder();
+                    count=0;
+                }
+            }
+        }
+        }
+    }
+
+Print String in wave pattern:::::::::::::::::::::::::-------->>>
+
+import java.util.*;
+public class Stringwavepattern {
+    public static void main(String[] args) {
+
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        //StringBuilder sb=new StringBuilder(s);
+        for(int i=0;i<s.length()-1;i++)
+        {
+            if(i%2==0)
+            {
+                System.out.print(s.charAt(i));
+            }
+        }
+            for(int i=0;i<s.length();i++)
+            {
+                if(i%2!=0)
+                {
+                    System.out.print(s.charAt(i));
+                }
+            }
+    }
+}
+
+Print String in wave pattern (Using StringBuilder):::::::::::::::::::::::::-------->>>
+
+public class Stringwave {
+    public static void main(String[] args)
+    {
+        //Scanner sc=new Scanner(System.in);
+        String s="viratkohli";
+        StringBuilder odd=new StringBuilder();
+        StringBuilder even=new StringBuilder();
+        for(int i=0;i<s.length();i++)
+        {
+            if(i%2==0)
+            {
+                even.append(s.charAt(i));
+            }
+            else
+            {
+                odd.append(s.charAt(i));
+            }
+        }
+        System.out.print((even.toString()+odd.toString()));
+    }   
+}
+
+Print first non-repeating character in a string:::::::::::::::::::::::::::------->>>>>
+
+import java.util.*;
+public class FirstNonRepChar
+{
+	public static void main(String[] args) 
+	{
+	    String s="ababcdcdefg";
+	    for(int i=0;i<s.length();i++)
+	    {
+	        int count=0;
+	        for(int j=0;j<s.length();j++)
+	        {
+	            if(s.charAt(j)==s.charAt(i))
+	            {
+	                count++;
+	            }
+	        }
+	        if(count==1)
+	        {
+	            System.out.print(s.charAt(i));
+	            break;
+	        }
+	        }
+	    }
+	}
