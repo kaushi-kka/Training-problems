@@ -1,0 +1,59 @@
+Leetcode 11:
+
+class Solution {
+    public int maxArea(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int maxArea = 0;
+        while (left < right) {
+            int currentArea = Math.min(height[left], height[right]) * (right - left);
+            maxArea = Math.max(maxArea, currentArea);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxArea;
+    }
+}
+
+Leetcode 58:
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        s=s.trim();
+        int len=s.length();
+        char[] ch_arr=s.toCharArray();
+        
+        for(int i=len-1;i>0;i--)
+        {
+            if(ch_arr[i]==' ')
+            {
+               return len-i-1;
+            }
+            
+        }
+        return len;
+        
+    }
+}
+
+Leetcode 724:
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int totalSum = 0;
+        int leftsum = 0;
+        for (int ele : nums)
+            totalSum += ele;
+        for (int i = 0; i < nums.length; leftsum += nums[i++])
+            if (leftsum * 2 == totalSum - nums[i])
+                return i; 
+        return -1;
+    }
+}
+
+
+Leetcode 54:
