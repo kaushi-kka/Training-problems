@@ -19,15 +19,59 @@ public class Hotelsystem {
     }
 
     public void bookRoom(Customer c, int roomId) {
-        for (Room r : rooms) {
-            if (r.getRoomId() == roomId && r.isAvailable()) {
-                r.bookRoom();
-                Reservation res = new Reservation(reservations.size() + 1, c, r);
-                reservations.add(res);
-                System.out.println("Room booked successfully!");
-                return;
+        try {
+            boolean found = false;
+
+            for (Room r : rooms) {
+                if (r.getRoomId() == roomId) {
+                    found = true;
+
+                    if (!r.isAvailable()) {
+                        throw new Exception("Room already booked!");
+                    }
+
+                    r.bookRoom();
+                    Reservation res = new Reservation(reservations.size() + 1, c, r);
+                    reservations.add(res);
+
+                    System.out.println("Room booked successfully!");
+                    return;
+                }
             }
+
+            if (!found) {
+                throw new Exception("Invalid Room ID!");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
-        System.out.println("Room not available!");
+    }
+
+    public void cancelReservation(int roomId) {
+        try {
+            boolean found = false;
+
+            for (Room r : rooms) {
+                if (r.getRoomId() == roomId) {
+                    found = true;
+
+                    if (r.isAvailable()) {
+                        throw new Exception("Room is not booked yet!");
+                    }
+
+                    r.freeRoom();
+                    System.out.println("Reservation cancelled!");
+                    return;
+                }
+            }
+
+            if (!found) {
+                throw new Exception("Invalid Room ID!");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

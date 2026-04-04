@@ -12,8 +12,8 @@ public class Main {
         system.addRoom(r2);
 
         Customer c1 = new Customer("Kaushikka", "9876543210");
-
+        c1.display();
         system.showAvailableRooms();
-        system.bookRoom(c1, 101);
+        system.bookRoom(c1, 102);
     }
 }

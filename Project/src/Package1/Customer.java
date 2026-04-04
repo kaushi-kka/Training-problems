@@ -9,5 +9,6 @@ public class Customer extends Person {
     @Override
     public void display() {
         System.out.println("Customer: " + name + ", Phone: " + phone);
+        System.out.println(name + " is a valued customer of our hotel.");
     }
 }
