@@ -5,7 +5,7 @@ public class SetExample {
     {
         Set<Integer> Linkedset=new LinkedHashSet<>();
         Set<Integer> Hset=new HashSet<>();
-        int[] arr={5,3,9,1,7,2};
+        int[] arr={5,6,9,1,7,2};
         for(int i:arr)
         {
             Linkedset.add(i);
