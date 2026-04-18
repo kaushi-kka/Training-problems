@@ -1,5 +1,7 @@
 package DAY11;
 
+import DAY5.User;
+
 class OutOfStockException extends Exception
 {
     public OutOfStockException(String message)

@@ -1,3 +1,4 @@
+package DAY6;
 
 class Notification
 {

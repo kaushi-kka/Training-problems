@@ -1,3 +1,4 @@
+package DAY5;
 class User
 {
     String name;
