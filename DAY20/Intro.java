@@ -5,8 +5,8 @@ public class Intro{
     {
         Scanner sc=new Scanner(System.in);
         //single threaded
-        task1();
         int n=sc.nextInt();
+        task1();    
         task2();
     }
     static void task1()

@@ -1,3 +1,4 @@
+package DAY4;
 
  class Shopping
 {

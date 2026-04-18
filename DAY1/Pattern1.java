@@ -1,10 +1,12 @@
+package DAY1;
 import java.util.*;
-public class Pattern3 {
+public class Pattern1 
+{
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        for(int i=n;i>0;i--)
+        for(int i=1;i<=n;i++)
         {
             for(int j=0;j<i;j++)
             {
@@ -12,5 +14,6 @@ public class Pattern3 {
             }
             System.out.println();
         }
-    }
+
+}
 }

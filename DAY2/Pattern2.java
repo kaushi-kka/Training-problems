@@ -1,3 +1,4 @@
+package DAY2;
 import java.util.*;
 public class Pattern2
 {
