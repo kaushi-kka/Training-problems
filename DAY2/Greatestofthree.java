@@ -1,4 +1,4 @@
-package DAY1;
+package DAY2;
 import java.util.*;
 public class Greatestofthree {
     public static void main(String[] args) 
